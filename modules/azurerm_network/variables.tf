@@ -1,14 +1,3 @@
-variable "rgs" {
-  description = "Map of resource groups with configuration details"
-  type = map(object({
-    rg_name    = string
-    location   = string
-    managed_by = optional(string)      # optional: allows omitting
-    tags       = optional(map(string)) # optional: allows empty tags
-  }))
-}
-
-
 variable "azure_virtual_networks" {
   description = "Map of Azure virtual networks"
   type = map(object({
@@ -32,3 +21,4 @@ variable "azure_virtual_networks" {
     }))
   }))
 }
+
