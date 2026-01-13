@@ -1,34 +1,3 @@
-variable "rgs" {
-  description = "Map of resource groups with configuration details"
-  type = map(object({
-    rg_name    = string
-    location   = string
-    managed_by = optional(string)      # optional: allows omitting
-    tags       = optional(map(string)) # optional: allows empty tags
-  }))
-}
-
-
-variable "azure_virtual_networks" {
-  description = "Map of Azure virtual networks"
-  type = map(object({
-    vnet_name = string
-    location  = string
-    rg_name   = string
-
-    # Optional flat arguments
-    address_space                  = optional(list(string))
-    dns_servers                    = optional(list(string))
-    bgp_community                  = optional(string)
-    edge_zone                      = optional(string)
-    flow_timeout_in_minutes        = optional(number)
-    private_endpoint_vnet_policies = optional(string)
-    tags                           = optional(map(string))
-
-  }))
-}
-
-
 variable "nsgs" {
   description = "Map of Network Security Groups with rules"
   type = map(object({
