@@ -15,12 +15,6 @@ resource "azurerm_virtual_network" "network" {
   private_endpoint_vnet_policies   = each.value.private_endpoint_vnet_policies
   tags                             = each.value.tags
 
-  # Optional subnets (dynamic block)
-  dynamic "subnet" {
-    for_each = each.value.subnets
-    content {
-      name             = subnet.value.subnet_name
-      address_prefixes = subnet.value.address_prefixes
-    }
-  }
+  
 }
+

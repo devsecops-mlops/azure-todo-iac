@@ -9,3 +9,10 @@ module "networks" {
   azure_virtual_networks = var.azure_virtual_networks
 
 }
+
+module "network_security_group" {
+  depends_on = [ var.azure_virtual_networks ]
+  source = "../../modules/azurem_nsg"
+  nsgs = var.nsgs
+
+}
