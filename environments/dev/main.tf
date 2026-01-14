@@ -30,3 +30,11 @@ module "subnet_to_nsg_association" {
   subnet_nsg_associations = var.subnet_nsg_associations
 
 }
+
+
+module "linux_vmss" {
+  depends_on        = [module.subnets]
+  source            = "../../modules/azurerm_vmss"
+  linux_vmss_config = var.linux_vmss_config
+
+}
