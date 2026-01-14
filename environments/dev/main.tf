@@ -38,3 +38,10 @@ module "linux_vmss" {
   linux_vmss_config = var.linux_vmss_config
 
 }
+
+
+module "law" {
+  depends_on = [ module.resource_group ]
+  source = "../../modules/azurerm_log_analytics_workspace"
+  laws = var.laws
+}
