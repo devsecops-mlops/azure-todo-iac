@@ -41,9 +41,17 @@ module "linux_vmss" {
 
 
 module "law" {
-  depends_on = [ module.resource_group ]
-  source = "../../modules/azurerm_log_analytics_workspace"
-  laws = var.laws
+  depends_on = [module.resource_group]
+  source     = "../../modules/azurerm_log_analytics_workspace"
+  laws       = var.laws
+}
+
+
+module "pip" {
+  depends_on = [module.resource_group]
+  source     = "../../modules/azurerm_public_ip"
+  pips       = var.pips
+
 }
 module "appgw" {
 depends_on = [ module.linux_vmss,module.pip]

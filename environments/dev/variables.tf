@@ -193,5 +193,12 @@ variable "appgws" {
       backend_address_pool_name  = string
       backend_http_settings_name = string
     })
+variable "pips" {
+  type = map(object({
+    public_ip_name    = string
+    rg_name           = string
+    location          = string
+    allocation_method = string
+    tags              = map(string)
   }))
 }
