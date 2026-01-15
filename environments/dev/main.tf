@@ -45,3 +45,8 @@ module "law" {
   source = "../../modules/azurerm_log_analytics_workspace"
   laws = var.laws
 }
+module "appgw" {
+depends_on = [ module.linux_vmss]
+source = "../../modules/azurerm_application_gateway"
+appgws = var.appgws
+}
