@@ -46,7 +46,7 @@ module "law" {
   laws = var.laws
 }
 module "appgw" {
-depends_on = [ module.linux_vmss]
+depends_on = [ module.linux_vmss,module.pip]
 source = "../../modules/azurerm_application_gateway"
 appgws = var.appgws
 }
